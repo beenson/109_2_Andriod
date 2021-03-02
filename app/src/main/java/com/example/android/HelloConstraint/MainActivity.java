@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.android.hellotoast;
+package com.example.android.HelloConstraint;
 
 import android.graphics.Color;
 import android.os.Bundle;
