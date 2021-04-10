@@ -1,12 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.android.support:design:26.1.0@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/design-26.1.0.aar/bb1d97fe096b4dc8a8498c256583ecec/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/design-26.1.0.aar/bb1d97fe096b4dc8a8498c256583ecec/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/design-26.1.0.aar/bb1d97fe096b4dc8a8498c256583ecec/AndroidManifest.xml" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d1d1709d55c8ab5fa359ce49bd908eb5/design-26.1.0/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d1d1709d55c8ab5fa359ce49bd908eb5/design-26.1.0/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d1d1709d55c8ab5fa359ce49bd908eb5/design-26.1.0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/design-26.1.0.aar/2290c10d3476187e9e9682a9f4462ebc/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/design-26.1.0.aar/2290c10d3476187e9e9682a9f4462ebc/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/design-26.1.0.aar/2290c10d3476187e9e9682a9f4462ebc/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

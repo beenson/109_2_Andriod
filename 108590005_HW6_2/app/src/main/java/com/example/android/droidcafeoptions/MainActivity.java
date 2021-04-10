@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.android.droidcafe;
+package com.example.android.droidcafeoptions;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -25,25 +25,35 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
-import android.app.DatePickerDialog;
-import android.support.v4.app.DialogFragment;
-
-import static android.provider.AlarmClock.EXTRA_MESSAGE;
 
 /**
- * This app demonstrates images used as buttons and a floating action button
- * to use an intent to launch a second activity. The app lets a user tap an
- * image to make a choice. The app displays a Toast message showing the user’s
- * choice.
+ * This app demonstrates images used as buttons and a floating action button to
+ * use an intent to launch a second activity. The app lets a user tap an image
+ * to make a choice. The app displays a Toast message showing the user’s choice,
+ * and sends the choice as data with an intent to launch the second activity.
+ *
+ * This version includes options in the options menu, in which some of the
+ * options appear as icons in the app bar.
  */
 public class MainActivity extends AppCompatActivity {
-    String mOrderMessage = "";
 
+    // Tag for the intent extra.
+    public static final String EXTRA_MESSAGE =
+            "com.example.android.droidcafeoptions.extra.MESSAGE";
+
+    // The order message, displayed in the Toast and sent to the new Activity.
+    private String mOrderMessage;
+
+    /**
+     * Creates the content view, the toolbar, and the floating action button.
+     * This method is provided in the Basic Activity template.
+     *
+     * @param savedInstanceState Saved instance state bundle.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -53,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this,
                         OrderActivity.class);
+                intent.putExtra(EXTRA_MESSAGE, mOrderMessage);
                 startActivity(intent);
             }
         });
@@ -66,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
      */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
@@ -78,30 +90,24 @@ public class MainActivity extends AppCompatActivity {
      */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        // This comment suppresses the Android Studio warning about simplifying
-        // the return statements.
-        //noinspection SimplifiableIfStatement
         switch (item.getItemId()) {
-            case R.id.action_contact:
-                displayToast(getString(R.string.action_contact_message));
-                break;
-            case R.id.action_favorites:
-                displayToast(getString(R.string.action_favorites_message));
-                break;
             case R.id.action_order:
-                Intent intent = new Intent(MainActivity.this, OrderActivity.class);
+                Intent intent = new Intent(MainActivity.this,
+                        OrderActivity.class);
                 intent.putExtra(EXTRA_MESSAGE, mOrderMessage);
                 startActivity(intent);
                 return true;
             case R.id.action_status:
                 displayToast(getString(R.string.action_status_message));
-                break;
+                return true;
+            case R.id.action_favorites:
+                displayToast(getString(R.string.action_favorites_message));
+                return true;
+            case R.id.action_contact:
+                displayToast(getString(R.string.action_contact_message));
+                return true;
             default:
+                // Do nothing
         }
 
         return super.onOptionsItemSelected(item);
@@ -110,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Displays a Toast with the message.
      *
-     * @param message Message to display
+     * @param message Message to display.
      */
     public void displayToast(String message) {
         Toast.makeText(getApplicationContext(), message,
@@ -141,17 +147,4 @@ public class MainActivity extends AppCompatActivity {
         displayToast(mOrderMessage);
     }
 
-    public void chooseDate(View view) {
-        DialogFragment newFragment = new DatePickerFragment();
-        newFragment.show(getSupportFragmentManager(),"datePicker");
-    }
-
-    public void processDatePickerResult(int year, int month, int day) {
-        String month_string = Integer.toString(month+1);
-        String day_string = Integer.toString(day);
-        String year_string = Integer.toString(year);
-        String dateMessage = (month_string + "/" + day_string + "/" + year_string);
-
-        Toast.makeText(this, "Date: " + dateMessage, Toast.LENGTH_SHORT).show();
-    }
 }

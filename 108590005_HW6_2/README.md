@@ -1,8 +1,10 @@
-DroidCafe - Solution Code
-=========================
+DroidCafeOptions - Solution Code
+================================
 
 App that demonstrates images used as buttons and a floating action button
-to use an intent to launch a second activity.
+to launch a second activity, which demonstrates EditText input controls
+and radio buttons. This version includes options in the options menu of
+the app bar.
 
 Introduction
 ------------
@@ -10,13 +12,15 @@ Introduction
 This app created from the Basic Activity template lets a user tap an image
 to make a choice. The app displays a Toast message showing the user’s choice.
 The app also uses an intent so that when the user taps the floating
-action button, it launches the second Activity.
+action button, it launches the second Activity. The second Activity
+demonstrates EditText input controls and radio buttons. This version
+includes options for the app bar options menu, in which some of the
+options appear as icons in the app bar.
 
 Pre-requisites
 --------------
 
 You need to know:
-
 - How to open, build, and run apps with Android Studio.
 - Handling a Button click.
 - Editing an XML layout file.
