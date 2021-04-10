@@ -1,4 +1,0 @@
-#Tue Mar 30 17:22:40 CST 2021
-base.0=C\:\\Users\\LAB1223\\Desktop\\109_2_Andriod\\108590005_HW6_2\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
-path.0=classes.dex
-renamed.0=classes.dex

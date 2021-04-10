@@ -25,6 +25,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
+import android.app.DatePickerDialog;
+import android.support.v4.app.DialogFragment;
+
+import static android.provider.AlarmClock.EXTRA_MESSAGE;
 
 /**
  * This app demonstrates images used as buttons and a floating action button
@@ -33,6 +37,7 @@ import android.widget.Toast;
  * choice.
  */
 public class MainActivity extends AppCompatActivity {
+    String mOrderMessage = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,8 +86,22 @@ public class MainActivity extends AppCompatActivity {
         // This comment suppresses the Android Studio warning about simplifying
         // the return statements.
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (item.getItemId()) {
+            case R.id.action_contact:
+                displayToast(getString(R.string.action_contact_message));
+                break;
+            case R.id.action_favorites:
+                displayToast(getString(R.string.action_favorites_message));
+                break;
+            case R.id.action_order:
+                Intent intent = new Intent(MainActivity.this, OrderActivity.class);
+                intent.putExtra(EXTRA_MESSAGE, mOrderMessage);
+                startActivity(intent);
+                return true;
+            case R.id.action_status:
+                displayToast(getString(R.string.action_status_message));
+                break;
+            default:
         }
 
         return super.onOptionsItemSelected(item);
@@ -102,21 +121,37 @@ public class MainActivity extends AppCompatActivity {
      * Shows a message that the donut image was clicked.
      */
     public void showDonutOrder(View view) {
-        displayToast(getString(R.string.donut_order_message));
+        mOrderMessage = getString(R.string.donut_order_message);
+        displayToast(mOrderMessage);
     }
 
     /**
      * Shows a message that the ice cream sandwich image was clicked.
      */
     public void showIceCreamOrder(View view) {
-        displayToast(getString(R.string.ice_cream_order_message));
+        mOrderMessage = getString(R.string.ice_cream_order_message);
+        displayToast(mOrderMessage);
     }
 
     /**
      * Shows a message that the froyo image was clicked.
      */
     public void showFroyoOrder(View view) {
-        displayToast(getString(R.string.froyo_order_message));
+        mOrderMessage = getString(R.string.froyo_order_message);
+        displayToast(mOrderMessage);
     }
 
+    public void chooseDate(View view) {
+        DialogFragment newFragment = new DatePickerFragment();
+        newFragment.show(getSupportFragmentManager(),"datePicker");
+    }
+
+    public void processDatePickerResult(int year, int month, int day) {
+        String month_string = Integer.toString(month+1);
+        String day_string = Integer.toString(day);
+        String year_string = Integer.toString(year);
+        String dateMessage = (month_string + "/" + day_string + "/" + year_string);
+
+        Toast.makeText(this, "Date: " + dateMessage, Toast.LENGTH_SHORT).show();
+    }
 }

@@ -27,6 +27,21 @@
     <item
         android:id="@+id/action_order"
         android:orderInCategory="10"
-        android:title="Order"
-        app:showAsAction="never" />
+        android:title="@string/action_order"
+        android:icon="@drawable/ic_shopping_cart"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_status"
+        android:orderInCategory="20"
+        android:title="@string/action_status"
+        android:icon="@drawable/ic_status_info"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_favorites"
+        android:orderInCategory="30"
+        android:title="@string/action_favorites"
+        android:icon="@drawable/ic_favorite_star"
+        app:showAsAction="ifRoom" />
 </menu>
