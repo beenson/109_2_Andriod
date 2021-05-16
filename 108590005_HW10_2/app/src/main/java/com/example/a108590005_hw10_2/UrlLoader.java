@@ -7,20 +7,21 @@ import androidx.annotation.Nullable;
 import androidx.loader.content.AsyncTaskLoader;
 
 public class UrlLoader extends AsyncTaskLoader<String> {
-    private String mQueryString;
+    private String mUrlString;
 
-    public BookLoader(Context context, String queryString) {
+    public UrlLoader(Context context, String urlString) {
         super(context);
-        mQueryString = queryString;
+        mUrlString = urlString;
     }
     @Override
     protected void onStartLoading() {
         super.onStartLoading();
+        forceLoad();
     }
 
     @Nullable
     @Override
     public String loadInBackground() {
-        return null;
+        return NetworkUtils.getSource(mUrlString);
     }
 }

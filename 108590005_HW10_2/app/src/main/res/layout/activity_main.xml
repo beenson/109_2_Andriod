@@ -36,7 +36,8 @@
         android:layout_height="wrap_content"
         android:padding="10dp"
         android:textSize="20sp"
-        android:text="GET PAGE SOURCE"/>
+        android:onClick="getSource"
+        android:text="GET PAGE SOURCE" />
     <ScrollView
         android:padding="10dp"
         android:textSize="20sp"
